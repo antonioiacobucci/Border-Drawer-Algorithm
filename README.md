@@ -7,4 +7,4 @@ Starting from a table(n,m) this algorithm draws all table borders with a unique 
 The pointer starts in position (0,0) and is allowed to move/draw one border square at a time, using draw(direction) and move(direction).
 
 
-![Input](input.png)
+![Input](input.png?raw=true)
