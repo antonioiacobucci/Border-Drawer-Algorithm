@@ -1,4 +1,6 @@
 /*
+table(n,m)
+
 draw(int a): 
     if a=0 -> writes and moves the pointer one border to the right
     if a=1 -> writes and moves the pointer one border to the left
@@ -11,10 +13,6 @@ move(int b):
     if a=2 -> moves the pointer one border up
     if a=3 -> moves the pointer one border down
     else doesn't move
-    
-    
-    
-    CONTROLLARE CASO BANALE (1,1) / (1,m) / (n,1)
 */
 
 public void draw_horizontal(int n, int m){
@@ -43,15 +41,17 @@ public void draw_vertical(int n, int m){
     if(controller) move(1);                                 // moving left or right
     else move(0);
     // central vertical lines have no drawn borders except horizontal ones
-    for(int j=2; j<n; j++){
-        if((j % 2)!=0){                                     // j ODD: vertical line towards up
-            for(int i=1; i<m; i++) draw(2);
+    if(n>1){                                                // there are central lines only if n>1
+        for(int j=2; j<n; j++){
+            if((j % 2)!=0){                                 // j ODD: vertical line towards up
+                for(int i=1; i<m; i++) draw(2);
+            }
+            else{                                           // j EVEN: vertical line towards down
+                for(int i=1; i<m; i++) draw(3);
+            }
+            if(controller) move(1);                         // MOVING left or right(horizontal lines are already drawn)
+            else move(0);
         }
-        else{                                               // j EVEN: vertical line towards down
-            for(int i=1; i<m; i++) draw(3);
-        }
-        if(controller) move(1);                             // MOVING left or right(horizontal lines are already drawn)
-        else move(0);
     }
     // last vertical line has alternated drawn and blank borders
     int last=m;
