@@ -87,7 +87,7 @@ private void draw_last_vertical(int n, int m) {
     // if m ODD last border is always already drawn anywyay
 }
 
-boolean isEven(int x) {
+private boolean isEven(int x) {
     return (x % 2) == 0);
 }
 
